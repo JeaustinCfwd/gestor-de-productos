@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TodoList - Gestión de Productos</title>
+    <link rel="stylesheet" href="../estilos/estilos.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="todo-header">
+            <h1>TodoList de Productos</h1>
+            <p>Gestión integral de productos de la empresa</p>
+        </div>
+        
+        <div class="todo-form">
+            <form id="productForm">
+                <div class="input-group">
+                    <input type="text" id="nombre" placeholder="Nombre del producto" required>
+                    <input type="number" id="precio" placeholder="Precio" step="0.01" required>
+                    <input type="number" id="stock" placeholder="Stock" required>
+                    <button type="submit">
+                        <i class="fas fa-plus"></i> Agregar
+                    </button>
+                </div>
+            </form>
+        </div>
+        
+        <div class="todo-list">
+            <h2>Lista de Productos</h2>
+            <div class="list-container">
+                <ul id="productlist"></ul>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="../js/javascript.js"></script>
+</body>
+</html>
