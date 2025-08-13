@@ -62,11 +62,21 @@ async function addProduct(event) {
   event.preventDefault();
   
   const nombre = document.getElementById('nombre').value;
-  const precio = document.getElementById('precio').value;
-  const stock = document.getElementById('stock').value;
+  const precio = parseFloat(document.getElementById('precio').value);
+  const stock = parseInt(document.getElementById('stock').value);
   
   if (!nombre || !precio || !stock) {
     alert('Complete todos los campos');
+    return;
+  }
+  
+  if (precio < 0) {
+    alert('El precio no puede ser negativo');
+    return;
+  }
+  
+  if (stock < 0) {
+    alert('El stock no puede ser negativo');
     return;
   }
   
@@ -145,8 +155,24 @@ async function removeProduct(id) {
   }
 }
 
+// Función para validar inputs en tiempo real
+function validateInput(input) {
+  const value = parseFloat(input.value);
+  if (value < 0) {
+    input.value = 0;
+  }
+}
+
 // Event listeners
 productForm.addEventListener('submit', addProduct);
 
-// Cargar productos al iniciar
-document.addEventListener('DOMContentLoaded', loadProducts);
+// Validación en tiempo real para precio y stock
+document.addEventListener('DOMContentLoaded', function() {
+  loadProducts();
+  
+  const precioInput = document.getElementById('precio');
+  const stockInput = document.getElementById('stock');
+  
+  precioInput.addEventListener('input', () => validateInput(precioInput));
+  stockInput.addEventListener('input', () => validateInput(stockInput));
+});

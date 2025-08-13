@@ -4,7 +4,13 @@
       "nombre": "samsung s25 ultra",
       "precio": 1000,
       "stock": 10,
-      "id": "c73f"
+      "id": "31b3"
+    },
+    {
+      "id": "2c01",
+      "nombre": "laptop hp",
+      "precio": 90,
+      "stock": 12
     }
   ]
 }
